@@ -1,0 +1,30 @@
+word = input("Welcome to hangman, what word are we guessing?:")
+guesses = int(input(" How many guesses does the user have?: "))
+letter = ('abcdefghijklmnopqrstuvwxyz')
+
+while guesses > 0:
+    print("WORD", end = " ")
+    for letters in word: 
+        print("_", end = " ")
+    print("Guesses LEFT: " + str(guesses))
+    guesses = guesses - 1
+#word = "hello"
+guess =  input("guess a letter ")
+index = 0
+letterNotFound = True
+while len(guess) > 1:
+    print("Invalid input.")
+    guess =  input("guess a letter ")
+while letterNotFound and index < len(word):
+    if word[index] == guess[0]:
+        correctGuess = word[index]
+        letterNotFound = False
+    else: 
+        #print("Incorrect. Letter is not in the word")
+        index = index + 1
+    
+if letterNotFound == True:
+    print ("Incorrect. Letter is not in the word")
+if letterNotFound == False:
+    print("Correct")
+    print(str(correctGuess))
